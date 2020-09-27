@@ -15,6 +15,7 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 CFLAGS += -fPIC
+CFLAGS += -Wno-unused-parameter
 
 export PROJECT_NAME PROJECT_ROOT SRC_DIR BIN_DIR OBJ_DIR MAKE CC CFLAGS
 
