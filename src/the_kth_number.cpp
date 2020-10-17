@@ -47,9 +47,12 @@ int partition(vector<int> &vec, int left, int right)
     int j = right;
     while (i < j)
     {
-        for (i = i + 1; vec[i] <= pivot; ++i)
-        for (j = j - 1; vec[j] > pivot; --j)
-        if (i < j) swap(vec[i], vec[j]);
+        for (i = i + 1; i < right && vec[i] <= pivot; ++i)
+            ;
+        for (j = j - 1; j >= left && vec[j] > pivot; --j)
+            ;
+        if (i < j)
+            swap(vec[i], vec[j]);
     }
     vec[left] = vec[j];
     vec[j] = pivot;
