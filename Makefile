@@ -7,7 +7,7 @@ BIN_DIR = $(PROJECT_ROOT)/bin
 OBJ_DIR = $(PROJECT_ROOT)/obj
 
 MAKE = make
-CC = clang++
+CC = g++
 CFLAGS += -std=c++11
 CFLAGS += -g
 CFLAGS += -Ofast
