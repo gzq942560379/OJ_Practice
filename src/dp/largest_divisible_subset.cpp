@@ -13,30 +13,29 @@ public:
         if (nums.empty())
             return vector<int>();
         sort(nums.begin(), nums.end());
-        vector<int> dp(nums.size());
+        vector<int> opt(nums.size());
         vector<int> pre(nums.size(), -1);
-        dp[0] = 1;
+        opt[0] = 1;
         int max_num = 1;
         int max_index = 0;
         for (size_t i = 1; i < nums.size(); ++i)
         {
-            dp[i] = 1;
+            opt[i] = 1;
             pre[i] = -1;
             for (size_t j = 0; j < i; ++j)
             {
-                if (nums[i] % nums[j] == 0 && dp[j] + 1 > dp[i])
+                if (nums[i] % nums[j] == 0 && opt[j] + 1 > opt[i])
                 {
-                    dp[i] = dp[j] + 1;
+                    opt[i] = opt[j] + 1;
                     pre[i] = j;
                 }
             }
-            if (max_num < dp[i])
+            if (max_num < opt[i])
             {
-                max_num = dp[i];
+                max_num = opt[i];
                 max_index = i;
             }
         }
-        // 构造输出
         vector<int> ret;
         for (int index = max_index; index != -1; index = pre[index])
         {

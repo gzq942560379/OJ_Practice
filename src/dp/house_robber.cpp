@@ -7,20 +7,18 @@ using namespace std;
 class Solution
 {
 public:
-    int rob(vector<int> &nums)
+    int rob(vector<int> &money)
     {
-        if (nums.size() == 0)
+        if (money.size() == 0)
             return 0;
-        if (nums.size() == 1)
-            return nums[0];
-        vector<int> dp(nums.size());
-        dp[0] = nums[0];
-        dp[1] = max(nums[0], nums[1]);
-        for (size_t i = 2; i < nums.size(); ++i)
-        {
-            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i]);
-        }
-        return dp[nums.size() - 1];
+        if (money.size() == 1)
+            return money[0];
+        vector<int> opt(money.size());
+        opt[0] = money[0];
+        opt[1] = max(money[0], money[1]);
+        for (size_t i = 2; i < money.size(); ++i)
+            opt[i] = max(opt[i - 1], opt[i - 2] + money[i]);
+        return opt[money.size() - 1];
     }
 };
 
