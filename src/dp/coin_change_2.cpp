@@ -39,5 +39,5 @@ int main()
         cin >> vec[i];
     }
     cin >> n;
-    cout << Solution().change(vec, n);
+    cout << Solution().change(n, vec);
 }
